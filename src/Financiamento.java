@@ -2,25 +2,26 @@ public class Financiamento {
     final double valorImovel;
     final int prazoFinanciamento;
     final double taxaJurosAnual;
-    public Financiamento(double valorImovel, int prazoFinanciamento, double taxaJurosAnual){
-        this.valorImovel = valorImovel;
-        this.prazoFinanciamento = prazoFinanciamento;
-        this.taxaJurosAnual = taxaJurosAnual;
+    public Financiamento(){
+        Usuario user = new Usuario();
+        this.valorImovel = user.precoImovel();
+        this.prazoFinanciamento = user.prazoFinanciamento();
+        this.taxaJurosAnual = user.taxaJuros();
     }
 
-    private double pagamentoMensal(){
-        return (this.valorImovel / this.prazoFinanciamento) * (1 + (this.taxaJurosAnual) / 12);
+    private double valorImovelTotal(){
+        return (this.valorImovel * Math.pow((1 + (this.taxaJurosAnual / 100)), this.prazoFinanciamento));
     }
 
-    private double totalPagamento(){
-        return (this.pagamentoMensal() * this.prazoFinanciamento);
+    private double parcelaMensal(){
+        return (valorImovelTotal() / this.prazoFinanciamento);
     }
 
-    public void showParcelaMensal(){
-        System.out.println(pagamentoMensal());
+    protected void showParcelaMensal(){
+        System.out.printf("Valor da parcela mensal: R$ %.2f \n", parcelaMensal());
     }
 
-    public void showPagamentoTotal(){
-        System.out.println(totalPagamento());
+    protected void showPagamentoTotal(){
+        System.out.printf("Valor total a ser pago: R$ %,.2f \n", valorImovelTotal());
     }
 }

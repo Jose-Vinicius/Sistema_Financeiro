@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Financiamento finan1 = new Financiamento(20000, 3, 6);
+        Financiamento financi1 = new Financiamento();
 
-        finan1.showParcelaMensal();
-        finan1.showPagamentoTotal();
+        financi1.showPagamentoTotal();
+        financi1.showParcelaMensal();
     }
 }
