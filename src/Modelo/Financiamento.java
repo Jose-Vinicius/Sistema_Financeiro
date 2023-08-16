@@ -1,4 +1,5 @@
 package Modelo;
+
 import Usuario.Usuario;
 public class Financiamento {
     private double valorImovel;
