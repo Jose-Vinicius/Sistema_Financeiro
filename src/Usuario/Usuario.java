@@ -1,3 +1,4 @@
+package Usuario;
 import java.util.Scanner;
 
 public class Usuario implements InterfaceUsuario{
@@ -11,8 +12,23 @@ public class Usuario implements InterfaceUsuario{
 
     @Override
     public int prazoFinanciamento() {
-        System.out.println("==== Informe o numero de parcelas ====");
-        return sc.nextInt();
+
+
+        while(true) {
+            int answer = 0;
+            try {
+                System.out.println("==== Informe o numero de parcelas ====");
+                answer = sc.nextInt();
+                if(answer <= 0){
+                    System.out.println("O valor não pode ser negativo ou zero");
+                } else{
+                    return answer;
+                }
+            } catch (Exception err) {
+
+            }
+
+        }
     }
 
     @Override

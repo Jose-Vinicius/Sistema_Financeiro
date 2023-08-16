@@ -1,3 +1,4 @@
+import Modelo.Financiamento;
 public class Main {
     public static void main(String[] args) {
         Financiamento financi1 = new Financiamento();
