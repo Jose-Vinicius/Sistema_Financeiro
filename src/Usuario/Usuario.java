@@ -4,10 +4,11 @@ import java.util.Scanner;
 public class Usuario implements InterfaceUsuario{
     public static Scanner sc = new Scanner(System.in);
 
+    // Função para tratar o preço do imovel
     @Override
     public double precoImovel() {
         while(true){
-            double answer = 0;
+            double answer;
             try{
                 System.out.println("==== Informe o preço do imovel ====");
                 answer = sc.nextDouble();
@@ -23,11 +24,11 @@ public class Usuario implements InterfaceUsuario{
             }
         }
     }
-
+    // Função para tratar o prazo do financiamento
     @Override
     public int prazoFinanciamento() {
         while(true) {
-            int answer = 0;
+            int answer;
             try {
                 System.out.println("==== Informe o numero de parcelas ====");
                 answer = sc.nextInt();
@@ -44,10 +45,11 @@ public class Usuario implements InterfaceUsuario{
         }
     }
 
+    // Função para tratar a taxa de juros
     @Override
     public double taxaJuros() {
         while(true) {
-            double answer = 0;
+            double answer;
             try {
                 System.out.println("==== Informe a taxa de juros mensal ====");
                 answer = sc.nextDouble();

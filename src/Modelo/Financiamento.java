@@ -6,6 +6,8 @@ public class Financiamento {
     private double valorImovel;
     private int prazoFinanciamento;
     private double taxaJurosAnual;
+
+    // constructor
     public Financiamento(){
         Usuario user = new Usuario();
         setValorImovel(user.precoImovel());
@@ -38,22 +40,27 @@ public class Financiamento {
         this.prazoFinanciamento = prazoFinanciamento;
     }
 
+    // Função responsável por calcular a soma do valor do imovel + valor do financiamento
     private double valorImovelTotal(){
         return parcelaMensal() * getPrazoFinanciamento();
     }
 
+    // Função responsável por calcular a parcela do financiamento
     private double parcelaMensal(){
         return (getValorImovel() / getPrazoFinanciamento()) * (1 + (getTaxaJurosAnual() / 12));
     }
 
+    //Função responsável por exibir parcela do imovel do financiamento
     public void showParcelaMensal(){
         System.out.printf("Valor da parcela mensal: R$ %,.2f \n", parcelaMensal());
     }
 
+    //Função responsável por exibir valor do imovel do financiamento
     public void showPagamentoTotal(){
         System.out.printf("Valor total a ser pago: R$ %,.2f \n", valorImovelTotal());
     }
 
+    // Função responsável por exibir os financiamentos e o valor somado dos mesmos
     public void showInfoFinanciamento(Financiamento[] arr){
         double somaFinanciamento = 0;
         double somaValorImoveis = 0;
@@ -65,16 +72,12 @@ public class Financiamento {
             System.out.println("-----------------");
         }
 
-        for (int i = 0; i < arr.length; i++) {
-            somaFinanciamento += arr[i].valorImovelTotal();
+        for (Financiamento financiamento : arr) {
+            somaFinanciamento += financiamento.valorImovelTotal();
         }
 
-        for (int i = 0; i < arr.length; i++) {
-            somaValorImoveis += arr[i].getValorImovel();
-        }
-
-        for (Financiamento fina: arr){
-
+        for (Financiamento financiamento : arr) {
+            somaValorImoveis += financiamento.getValorImovel();
         }
 
         System.out.printf("Valor total dos financiamentos é: R$ %,.2f \n", somaFinanciamento);
