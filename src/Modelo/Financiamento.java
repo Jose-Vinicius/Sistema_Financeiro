@@ -1,19 +1,19 @@
 package Modelo;
 
-import Usuario.Usuario;
 
-public class Financiamento {
+
+import java.util.ArrayList;
+
+public abstract class Financiamento {
     private double valorImovel;
     private int prazoFinanciamento;
     private double taxaJurosAnual;
 
     // constructor
-    public Financiamento(){
-        Usuario user = new Usuario();
-        setValorImovel(user.precoImovel());
-        setTaxaJurosAnual(user.taxaJuros());
-        setPrazoFinanciamento(user.prazoFinanciamento());
-        System.out.println("=== Financiamento cadastrado ===");
+    public Financiamento(double valorImovel, double taxaJuros, int prazoFinanciamento){
+        setValorImovel(valorImovel);
+        setTaxaJurosAnual(taxaJuros);
+        setPrazoFinanciamento(prazoFinanciamento);
     }
 
     double getTaxaJurosAnual() {
@@ -24,7 +24,7 @@ public class Financiamento {
         this.taxaJurosAnual = taxaJurosAnual;
     }
 
-    private double getValorImovel() {
+    protected double getValorImovel() {
         return valorImovel;
     }
 
@@ -32,7 +32,7 @@ public class Financiamento {
         this.valorImovel = valorImovel;
     }
 
-    private int getPrazoFinanciamento() {
+    protected int getPrazoFinanciamento() {
         return prazoFinanciamento;
     }
 
@@ -41,12 +41,12 @@ public class Financiamento {
     }
 
     // Função responsável por calcular a soma do valor do imovel + valor do financiamento
-    private double valorImovelTotal(){
+    protected double valorImovelTotal(){
         return parcelaMensal() * getPrazoFinanciamento();
     }
 
     // Função responsável por calcular a parcela do financiamento
-    private double parcelaMensal(){
+    protected double parcelaMensal(){
         return (getValorImovel() / getPrazoFinanciamento()) * (1 + (getTaxaJurosAnual() / 12));
     }
 
@@ -61,14 +61,14 @@ public class Financiamento {
     }
 
     // Função responsável por exibir os financiamentos e o valor somado dos mesmos
-    public void showInfoFinanciamento(Financiamento[] arr){
+    public void showInfoFinanciamento(ArrayList<Financiamento> arr){
         double somaFinanciamento = 0;
         double somaValorImoveis = 0;
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.size(); i++) {
             System.out.println("Financiamento: " + (i+1));
-            arr[i].showParcelaMensal();
-            arr[i].showPagamentoTotal();
+            arr.get(i).showParcelaMensal();
+            arr.get(i).showPagamentoTotal();
             System.out.println("-----------------");
         }
 

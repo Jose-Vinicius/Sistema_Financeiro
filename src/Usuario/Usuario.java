@@ -2,6 +2,7 @@ package Usuario;
 import java.util.Scanner;
 
 public class Usuario implements InterfaceUsuario{
+
     public static Scanner sc = new Scanner(System.in);
 
     // Função para tratar o preço do imovel
@@ -51,7 +52,7 @@ public class Usuario implements InterfaceUsuario{
         while(true) {
             double answer;
             try {
-                System.out.println("==== Informe a taxa de juros mensal ====");
+                System.out.println("==== Informe a taxa de juros anual ====");
                 answer = sc.nextDouble();
                 if (answer > 100) {
                     System.out.println("O valor é muito alto tente reduzir");
