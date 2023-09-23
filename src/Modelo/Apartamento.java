@@ -2,8 +2,30 @@ package Modelo;
 
 public class Apartamento extends Financiamento{
 
-    public Apartamento(double valorImovel, double taxaJuros, int prazoFinanciamento) {
+    private int vagasGaragem;
+
+    private int numeroAndar;
+
+    public Apartamento(double valorImovel, double taxaJuros, int prazoFinanciamento, int vagasGaragem, int numeroAndar) {
         super(valorImovel, taxaJuros, prazoFinanciamento);
+        setVagasGaragem(vagasGaragem);
+        setNumeroAndar(numeroAndar);
+    }
+
+    public int getVagasGaragem() {
+        return vagasGaragem;
+    }
+
+    public void setVagasGaragem(int vagasGaragem) {
+        this.vagasGaragem = vagasGaragem;
+    }
+
+    public int getNumeroAndar() {
+        return numeroAndar;
+    }
+
+    public void setNumeroAndar(int numeroAndar) {
+        this.numeroAndar = numeroAndar;
     }
 
     private double jurosDecrescentes(){

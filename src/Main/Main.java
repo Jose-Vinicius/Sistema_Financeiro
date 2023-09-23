@@ -14,13 +14,13 @@ public class Main {
 
         ArrayList<Financiamento> arrayListFinanciamento = new ArrayList<>();
 
-        arrayListFinanciamento.add(new Casa(user.precoImovel(), user.taxaJuros(), user.prazoFinanciamento()));
-        arrayListFinanciamento.add(new Casa(500000.00, 4.5, 360));
+        arrayListFinanciamento.add(new Casa(user.precoImovel(), user.taxaJuros(), user.prazoFinanciamento(), 200.5, 250));
+        arrayListFinanciamento.add(new Casa(500000.00, 4.5, 360, 110.75, 150));
 
-        arrayListFinanciamento.add(new Apartamento(500000.00, 4.5, 360));
-        arrayListFinanciamento.add(new Apartamento(400000.00, 3.2, 180));
+        arrayListFinanciamento.add(new Apartamento(500000.00, 4.5, 360, 2, 3));
+        arrayListFinanciamento.add(new Apartamento(400000.00, 3.2, 180, 1, 5));
 
-        arrayListFinanciamento.add(new Terreno(750000.00, 4.0, 480));
+        arrayListFinanciamento.add(new Terreno(750000.00, 4.0, 480, "Comercial"));
 
         arrayListFinanciamento.get(0).showInfoFinanciamento(arrayListFinanciamento);
 
