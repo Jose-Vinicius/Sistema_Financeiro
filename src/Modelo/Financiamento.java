@@ -3,7 +3,7 @@ package Modelo;
 import java.io.*;
 import java.util.ArrayList;
 
-public abstract class Financiamento {
+public abstract class Financiamento implements Serializable{
     private double valorImovel;
     private int prazoFinanciamento;
     private double taxaJurosAnual;
@@ -76,6 +76,10 @@ public abstract class Financiamento {
 
     }
 
+    public String showPropsFinanciamentos(){
+        return "Sem propriedades";
+    }
+
     public void criarArquivoTxt(ArrayList<Financiamento> arr) throws IOException {
         String filePath = new File("").getAbsolutePath();
         FileWriter arq = new FileWriter(filePath + "/src/Arquivos/dadosFinanciamento.txt");
@@ -85,9 +89,10 @@ public abstract class Financiamento {
             String classeFinanciamento = arr.get(i).getClass().getSimpleName();
             stringDadosFinanciamento.append(
                     String.format(
-                            "Financiamento:" + (i + 1) + " " + classeFinanciamento + "\n" +
+                            "Financiamento: " + (i + 1) + " " + classeFinanciamento + "\n" +
                             arr.get(i).showParcelaMensal() +
                             arr.get(i).showPagamentoTotal() +
+                            arr.get(i).showPropsFinanciamentos() + "\n"+
                             "------------------------------------- \n"
                     )
             );

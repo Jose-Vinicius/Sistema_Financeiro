@@ -2,7 +2,9 @@ package Modelo;
 
 import Exceptions.DescontoMaiorDoQueJurosException;
 
-public class Casa extends Financiamento{
+import java.io.Serializable;
+
+public class Casa extends Financiamento implements Serializable {
 
     private double areaConstruida;
 
@@ -52,5 +54,10 @@ public class Casa extends Financiamento{
         } catch (DescontoMaiorDoQueJurosException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public String showPropsFinanciamentos() {
+        return String.format("Area construida: %,.2f m2\nTamanho do terreno %,.2f m2", this.getAreaConstruida(),this.getTamanhoTerreno());
     }
 }

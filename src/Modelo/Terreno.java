@@ -1,6 +1,8 @@
 package Modelo;
 
-public class Terreno extends Financiamento{
+import java.io.Serializable;
+
+public class Terreno extends Financiamento implements Serializable {
     private String tipoArea;
 
     public String getTipoArea() {
@@ -19,5 +21,10 @@ public class Terreno extends Financiamento{
     @Override
     protected double valorImovelTotal() {
         return (((super.valorImovelTotal() / 100) * 2) + super.valorImovelTotal());
+    }
+
+    @Override
+    public String showPropsFinanciamentos() {
+        return String.format("Tipo Area: %s", this.getTipoArea());
     }
 }

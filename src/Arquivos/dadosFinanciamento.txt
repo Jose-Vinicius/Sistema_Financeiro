@@ -1,0 +1,61 @@
+Financiamento: 1 Casa
+Valor da parcela mensal: R$ 2.083,33 
+Valor total a ser pago: R$ 714.000,00 
+Area construida: 250,00 m2
+Tamanho do terreno 300,75 m2
+------------------------------------- 
+Financiamento: 2 Casa
+Valor da parcela mensal: R$ 6.875,00 
+Valor total a ser pago: R$ 677.500,00 
+Area construida: 150,00 m2
+Tamanho do terreno 110,75 m2
+------------------------------------- 
+Financiamento: 3 Apartamento
+Valor da 1º parcela mensal: R$ 34.375,00 
+Valor da 2º parcela mensal: R$ 29.687,50 
+Valor da 3º parcela mensal: R$ 28.125,00 
+Valor da 4º parcela mensal: R$ 27.343,75 
+Valor da 5º parcela mensal: R$ 26.875,00 
+Valor da 6º parcela mensal: R$ 26.562,50 
+Valor da 7º parcela mensal: R$ 26.339,29 
+Valor da 8º parcela mensal: R$ 26.171,88 
+Valor da 9º parcela mensal: R$ 26.041,67 
+Valor da 10º parcela mensal: R$ 25.937,50 
+Valor da 11º parcela mensal: R$ 25.852,27 
+Valor da 12º parcela mensal: R$ 25.781,25 
+Valor da 13º parcela mensal: R$ 25.721,15 
+Valor da 14º parcela mensal: R$ 25.669,64 
+Valor da 15º parcela mensal: R$ 25.625,00 
+Valor da 16º parcela mensal: R$ 25.585,94 
+Valor da 17º parcela mensal: R$ 25.551,47 
+Valor da 18º parcela mensal: R$ 25.520,83 
+Valor da 19º parcela mensal: R$ 25.493,42 
+Valor da 20º parcela mensal: R$ 25.468,75 
+Valor total a ser pago: R$ 533.728,81 
+Vagas Garagem: 2 
+Numero Andar: 3
+------------------------------------- 
+Financiamento: 4 Apartamento
+Valor da 1º parcela mensal: R$ 50.666,67 
+Valor da 2º parcela mensal: R$ 45.333,33 
+Valor da 3º parcela mensal: R$ 43.555,56 
+Valor da 4º parcela mensal: R$ 42.666,67 
+Valor da 5º parcela mensal: R$ 42.133,33 
+Valor da 6º parcela mensal: R$ 41.777,78 
+Valor da 7º parcela mensal: R$ 41.523,81 
+Valor da 8º parcela mensal: R$ 41.333,33 
+Valor da 9º parcela mensal: R$ 41.185,19 
+Valor da 10º parcela mensal: R$ 41.066,67 
+Valor total a ser pago: R$ 431.242,33 
+Vagas Garagem: 1 
+Numero Andar: 5
+------------------------------------- 
+Financiamento: 5 Terreno
+Valor da parcela mensal: R$ 2.083,33 
+Valor total a ser pago: R$ 1.020.000,00 
+Tipo Area: Comercial
+------------------------------------- 
+
+Valor total dos financiamentos é: R$ 3.376.471,14 
+Valor total dos imoveis é: R$ 2.550.000,00 
+

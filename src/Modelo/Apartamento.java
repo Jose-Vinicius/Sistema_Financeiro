@@ -1,6 +1,8 @@
 package Modelo;
 
-public class Apartamento extends Financiamento{
+import java.io.Serializable;
+
+public class Apartamento extends Financiamento implements Serializable {
 
     private int vagasGaragem;
 
@@ -55,5 +57,10 @@ public class Apartamento extends Financiamento{
     @Override
     public String showParcelaMensal() {
         return parcelasApartamento();
+    }
+
+    @Override
+    public String showPropsFinanciamentos() {
+        return String.format("Vagas Garagem: %d \nNumero Andar: %d", this.getVagasGaragem(),this.getNumeroAndar());
     }
 }
