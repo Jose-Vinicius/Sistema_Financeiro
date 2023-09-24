@@ -6,10 +6,11 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Serializacao{
+    final String arqName = "financas_serializado.dat";
     public void serializarArquivo(ArrayList<Financiamento> arr){
 
         String filePath = new File("").getAbsolutePath();
-        String path = filePath + "/src/Arquivos/Main_serializado.dat";
+        String path = filePath + "/src/Arquivos/" + arqName;
         try (
             FileOutputStream arquivo = new FileOutputStream(path);
             ObjectOutputStream saida = new ObjectOutputStream(arquivo)) {
@@ -22,7 +23,7 @@ public class Serializacao{
 
     public ArrayList<Financiamento> desserializar() {
         String filePath = new File("").getAbsolutePath();
-        String arq = filePath + "/src/Arquivos/financas_serializado.dat";
+        String arq = filePath + "/src/Arquivos/" + arqName;
         ArrayList<Financiamento> objeto = null;
         try (
             FileInputStream arquivo = new FileInputStream(arq);
