@@ -82,6 +82,9 @@ public abstract class Financiamento {
 
         System.out.printf("Valor total dos financiamentos é: R$ %,.2f \n", somaFinanciamento);
         System.out.printf("Valor total dos imoveis é: R$ %,.2f \n", somaValorImoveis);
+    }
+
+    public void showTamanhoTerreno(){
 
     }
 }

@@ -1,16 +1,17 @@
 package Modelo;
 
+import Exceptions.DescontoMaiorDoQueJurosException;
+
 public class Casa extends Financiamento{
-    private int desconto;
 
     private double areaConstruida;
 
     private double tamanhoTerreno;
 
-    public Casa(double valorImovel, double taxaJuros, int prazoFinanciamento, double areaConstruida, double tamanhoTerreno) {
+    public Casa(double valorImovel, double taxaJuros, int prazoFinanciamento, double tamanhoTerreno, double areaConstruida) {
         super(valorImovel, taxaJuros, prazoFinanciamento);
-        setAreaConstruida(areaConstruida);
         setTamanhoTerreno(tamanhoTerreno);
+        setAreaConstruida(areaConstruida);
     }
 
     public double getAreaConstruida() {
@@ -29,22 +30,27 @@ public class Casa extends Financiamento{
         this.tamanhoTerreno = tamanhoTerreno;
     }
 
-    public int getDesconto() {
-        return desconto;
-    }
-
-    public void setDesconto(int desconto) {
-        this.desconto = desconto;
-    }
-
-    public double calculoDesconto(){
-        setDesconto(100);
+    public double calculoDesconto() throws DescontoMaiorDoQueJurosException{
+        double valorDesconto;
+        double desconto = 100000;
         double parcela = this.parcelaMensal();
-        return parcela - this.getDesconto();
+        valorDesconto = parcela - desconto;
+        try{
+            if(desconto > parcela){
+                throw new DescontoMaiorDoQueJurosException();
+            }
+        }catch (Exception err){
+            throw new RuntimeException(err);
+        }
+        return valorDesconto;
     }
 
     @Override
     protected double valorImovelTotal() {
-        return (calculoDesconto() * this.getPrazoFinanciamento());
+        try {
+            return (calculoDesconto() * this.getPrazoFinanciamento());
+        } catch (DescontoMaiorDoQueJurosException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
