@@ -17,6 +17,8 @@ public class Main implements Serializable {
 
         ArrayList<Financiamento> arrayListFinanciamento = new ArrayList<>();
 
+        arrayListFinanciamento.add(new Casa(user.precoImovel(), user.taxaJuros(), user.prazoFinanciamento(), user.tamanhoTerreno(), user.areaConstruida()));
+
         arrayListFinanciamento.add(new Casa(400000.00, 10.5, 360, 300.75, 250));
         arrayListFinanciamento.add(new Casa(500000.00, 4.5, 100, 110.75, 150));
 
