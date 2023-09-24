@@ -32,7 +32,7 @@ public class Casa extends Financiamento{
 
     public double calculoDesconto() throws DescontoMaiorDoQueJurosException{
         double valorDesconto;
-        double desconto = 100000;
+        double desconto = 100;
         double parcela = this.parcelaMensal();
         valorDesconto = parcela - desconto;
         try{

@@ -37,17 +37,23 @@ public class Apartamento extends Financiamento{
         return valorParcelaSomado;
     }
 
+    private String parcelasApartamento(){
+        StringBuilder stringParcelaApartamento = new StringBuilder();
+        for (int i = 1; i <= getPrazoFinanciamento(); i++) {
+            double jurosMensalDecrescente = getTaxaJurosAnual() / i;
+            double parcelaDecrescente = (getValorImovel() / getPrazoFinanciamento()) * (1 + (jurosMensalDecrescente / 12));
+            stringParcelaApartamento.append(String.format("Valor da %dº parcela mensal: R$ %,.2f \n",i, parcelaDecrescente));
+        }
+        return stringParcelaApartamento.toString();
+    }
+
     @Override
     protected double valorImovelTotal() {
         return jurosDecrescentes();
     }
 
     @Override
-    public void showParcelaMensal() {
-        for (int i = 1; i <= getPrazoFinanciamento(); i++) {
-            double jurosMensalDecrescente = getTaxaJurosAnual() / i;
-            double parcelaDecrescente = (getValorImovel() / getPrazoFinanciamento()) * (1 + (jurosMensalDecrescente / 12));
-            System.out.printf("Valor da %dº parcela mensal: R$ %,.2f \n",i, parcelaDecrescente);
-        }
+    public String showParcelaMensal() {
+        return parcelasApartamento();
     }
 }

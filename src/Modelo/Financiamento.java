@@ -1,7 +1,6 @@
 package Modelo;
 
-
-
+import java.io.*;
 import java.util.ArrayList;
 
 public abstract class Financiamento {
@@ -51,26 +50,19 @@ public abstract class Financiamento {
     }
 
     //Função responsável por exibir parcela do imovel do financiamento
-    public void showParcelaMensal(){
-        System.out.printf("Valor da parcela mensal: R$ %,.2f \n", parcelaMensal());
+    public String showParcelaMensal(){
+        return String.format("Valor da parcela mensal: R$ %,.2f \n", parcelaMensal());
     }
 
     //Função responsável por exibir valor do imovel do financiamento
-    public void showPagamentoTotal(){
-        System.out.printf("Valor total a ser pago: R$ %,.2f \n", valorImovelTotal());
+    public String showPagamentoTotal(){
+        return String.format("Valor total a ser pago: R$ %,.2f \n", valorImovelTotal());
     }
 
     // Função responsável por exibir os financiamentos e o valor somado dos mesmos
-    public void showInfoFinanciamento(ArrayList<Financiamento> arr){
+    public String showInfoFinanciamento(ArrayList<Financiamento> arr){
         double somaFinanciamento = 0;
         double somaValorImoveis = 0;
-
-        for (int i = 0; i < arr.size(); i++) {
-            System.out.println("Financiamento: " + (i+1));
-            arr.get(i).showParcelaMensal();
-            arr.get(i).showPagamentoTotal();
-            System.out.println("-----------------");
-        }
 
         for (Financiamento financiamento : arr) {
             somaFinanciamento += financiamento.valorImovelTotal();
@@ -80,12 +72,46 @@ public abstract class Financiamento {
             somaValorImoveis += financiamento.getValorImovel();
         }
 
-        System.out.printf("Valor total dos financiamentos é: R$ %,.2f \n", somaFinanciamento);
-        System.out.printf("Valor total dos imoveis é: R$ %,.2f \n", somaValorImoveis);
+        return String.format("Valor total dos financiamentos é: R$ %,.2f \nValor total dos imoveis é: R$ %,.2f \n", somaFinanciamento, somaValorImoveis);
+
     }
 
-    public void showTamanhoTerreno(){
+    public void criarArquivoTxt(ArrayList<Financiamento> arr) throws IOException {
+        String filePath = new File("").getAbsolutePath();
+        FileWriter arq = new FileWriter(filePath + "/src/Arquivos/dadosFinanciamento.txt");
+        PrintWriter gravarArq = new PrintWriter(arq);
+        StringBuilder stringDadosFinanciamento = new StringBuilder();
+        for(int i = 0; i < arr.size(); i++){
+            String classeFinanciamento = arr.get(i).getClass().getSimpleName();
+            stringDadosFinanciamento.append(
+                    String.format(
+                            "Financiamento:" + (i + 1) + " " + classeFinanciamento + "\n" +
+                            arr.get(i).showParcelaMensal() +
+                            arr.get(i).showPagamentoTotal() +
+                            "------------------------------------- \n"
+                    )
+            );
+        }
+        gravarArq.println(
+                stringDadosFinanciamento + "\n" +
+                showInfoFinanciamento(arr)
+        );
 
+        arq.close();
+
+    }
+
+    public void lerArquivoTxt() throws IOException {
+        String filePath = new File("").getAbsolutePath();
+        String arq = filePath + "/src/Arquivos/dadosFinanciamento.txt";
+        try (BufferedReader leitor = new BufferedReader(new FileReader(arq))){
+            String linhaArquivo;
+            while ((linhaArquivo = leitor.readLine()) != null) {
+                System.out.println(linhaArquivo);
+            }
+        }catch(IOException err){
+            err.printStackTrace();
+        }
     }
 }
 
