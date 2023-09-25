@@ -18,11 +18,13 @@ public class Terreno extends Financiamento implements Serializable {
         setTipoArea(tipoArea);
     }
 
+    // Soma do valor do terreno
     @Override
     protected double valorImovelTotal() {
         return (((super.valorImovelTotal() / 100) * 2) + super.valorImovelTotal());
     }
 
+    //Apresenta as propriedades exclusivas do terreno
     @Override
     public String showPropsFinanciamentos() {
         return String.format("Tipo Area: %s", this.getTipoArea());

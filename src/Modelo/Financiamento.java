@@ -80,6 +80,7 @@ public abstract class Financiamento implements Serializable{
         return "Sem propriedades";
     }
 
+    //Função responsavel por criar o arquivo de texto com seu conteudo
     public void criarArquivoTxt(ArrayList<Financiamento> arr) throws IOException {
         String filePath = new File("").getAbsolutePath();
         FileWriter arq = new FileWriter(filePath + "/src/Arquivos/dadosFinanciamento.txt");
@@ -106,6 +107,7 @@ public abstract class Financiamento implements Serializable{
 
     }
 
+    //função resposavel por ler o arquivo de texto e retornar no console as informações
     public void lerArquivoTxt() throws IOException {
         String filePath = new File("").getAbsolutePath();
         String arq = filePath + "/src/Arquivos/dadosFinanciamento.txt";

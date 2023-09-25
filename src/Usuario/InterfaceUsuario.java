@@ -5,6 +5,7 @@ import java.util.Scanner;
 public interface InterfaceUsuario {
     public static Scanner sc = new Scanner(System.in);
 
+    // função que solicita ao usuario preco imovel e trata caso aja erro
     public default double precoImovel(){
         while(true){
             double answer;
@@ -23,6 +24,7 @@ public interface InterfaceUsuario {
             }
         }
     };
+    // função que solicita ao usuario prazo do imovel e trata caso aja erro
     public default int prazoFinanciamento(){
         while(true) {
             int answer;
@@ -41,7 +43,7 @@ public interface InterfaceUsuario {
 
         }
     };
-
+    // função que solicita ao usuario taxa de juros e trata caso aja erro
     public default double taxaJuros(){
         while(true) {
             double answer;
@@ -61,7 +63,7 @@ public interface InterfaceUsuario {
             }
         }
     };
-
+    // função que solicita ao usuario o tamanho terreno e trata caso aja erro
     public default double tamanhoTerreno(){
         while(true) {
             double answer;
@@ -80,7 +82,7 @@ public interface InterfaceUsuario {
         }
     }
 
-
+    // função que solicita ao usuario area construida e trata caso aja erro
     public default double areaConstruida(){
         while(true) {
             double answer;

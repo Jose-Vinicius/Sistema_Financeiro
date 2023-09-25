@@ -32,6 +32,7 @@ public class Casa extends Financiamento implements Serializable {
         this.tamanhoTerreno = tamanhoTerreno;
     }
 
+    // Calcula o desconto, e trata caso o desconto for maior que o valor da parcela
     public double calculoDesconto() throws DescontoMaiorDoQueJurosException{
         double valorDesconto;
         double desconto = 100;
@@ -47,6 +48,7 @@ public class Casa extends Financiamento implements Serializable {
         return valorDesconto;
     }
 
+    //calcula o valor da casa somando todas as parcelas
     @Override
     protected double valorImovelTotal() {
         try {
@@ -56,6 +58,7 @@ public class Casa extends Financiamento implements Serializable {
         }
     }
 
+    //Apresenta as propriedades exclusivas da casa
     @Override
     public String showPropsFinanciamentos() {
         return String.format("Area construida: %,.2f m2\nTamanho do terreno %,.2f m2", this.getAreaConstruida(),this.getTamanhoTerreno());

@@ -7,8 +7,9 @@ import java.util.ArrayList;
 
 public class Serializacao{
     final String arqName = "financas_serializado.dat";
-    public void serializarArquivo(ArrayList<Financiamento> arr){
 
+    //função responsavel por criar e escrever o arquivo serializado
+    public void serializarArquivo(ArrayList<Financiamento> arr){
         String filePath = new File("").getAbsolutePath();
         String path = filePath + "/src/Arquivos/" + arqName;
         try (
@@ -20,7 +21,7 @@ public class Serializacao{
             e.printStackTrace();
         }
     }
-
+    // função responsavel por desserializar o arquivo e retornar para leitura
     public ArrayList<Financiamento> desserializar() {
         String filePath = new File("").getAbsolutePath();
         String arq = filePath + "/src/Arquivos/" + arqName;
